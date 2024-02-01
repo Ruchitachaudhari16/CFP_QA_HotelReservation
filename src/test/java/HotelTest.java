@@ -24,7 +24,7 @@ public class HotelTest
 
             // Assert
             ArrayList<String> employees = payrollSystem.getEmployees();
-            assertEquals("Number of employees should be 2", 3, employees.size());
+            assertEquals("Number of employees should be 3", 3, employees.size());
             assertEquals("First employee should match", empOne, employees.get(0));
             assertEquals("Second employee should match", empTwo, employees.get(1));
             assertEquals("Third employee should match:",empThree,employees.get(2));
