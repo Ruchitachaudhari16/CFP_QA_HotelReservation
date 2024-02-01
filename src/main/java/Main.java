@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Main {
@@ -28,6 +30,21 @@ rates for Regular Customer...*/
         for (String employee : employees) {
             System.out.println("Employee Name: " + employee);
         }
+
+        //UC:-2
+        // Hotel Reservation System Use Case
+        HotelReservation reservationSystem = new HotelReservation();
+        reservationSystem.addHotel("Lakewood", 100.0);
+        reservationSystem.addHotel("Bridgewood", 150.0);
+        reservationSystem.addHotel("Ridgewood", 200.0);
+        reservationSystem.addHotel("Vivanta",80.0);
+
+        // Find Cheapest Hotel Use Case
+        LocalDate startDate = LocalDate.parse("2024-02-01", DateTimeFormatter.ISO_LOCAL_DATE);
+        LocalDate endDate = LocalDate.parse("2024-02-05", DateTimeFormatter.ISO_LOCAL_DATE);
+
+        // Display Cheapest Hotel
+        System.out.println(reservationSystem.findCheapestHotel(startDate,endDate));
     }
 }
 
