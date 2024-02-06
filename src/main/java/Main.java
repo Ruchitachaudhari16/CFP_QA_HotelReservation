@@ -6,11 +6,10 @@ public class Main {
     public static void main(String[] args) {
         /* UC1:-Ability to add Hotel in a Hotel Reservation System with Name and
 rates for Regular Customer...*/
-
-        // Hotel Reservation System
         HotelReservation reservation = new HotelReservation();
-        reservation.addHotel("Radison Blu ", 10000.0);
-        reservation.addHotel("Vivanta", 15000.0);
+        /*Hotel Reservation System
+         reservation.addHotel("Radison Blu ", 10000.0);
+        reservation.addHotel("Vivanta", 15000.0);*/
 
         //  Get hotels and display
         ArrayList<Hotel> hotels = reservation.getHotels();
@@ -31,13 +30,13 @@ rates for Regular Customer...*/
             System.out.println("Employee Name: " + employee);
         }
 
-        //UC:-2
+        //UC:-3
         // Hotel Reservation System Use Case
         HotelReservation reservationSystem = new HotelReservation();
-        reservationSystem.addHotel("Lakewood", 100.0);
-        reservationSystem.addHotel("Bridgewood", 150.0);
-        reservationSystem.addHotel("Ridgewood", 200.0);
-        reservationSystem.addHotel("Vivanta",80.0);
+        reservationSystem.addHotel("Lakewood", 100.0, 110.0, 90.0);
+        reservationSystem.addHotel("Bridgewood", 150.0, 150.0, 50.0);
+        reservationSystem.addHotel("Ridgewood", 200.0, 220.0, 150.0);
+
 
         // Find Cheapest Hotel Use Case
         LocalDate startDate = LocalDate.parse("2024-02-01", DateTimeFormatter.ISO_LOCAL_DATE);
@@ -47,5 +46,6 @@ rates for Regular Customer...*/
         System.out.println(reservationSystem.findCheapestHotel(startDate,endDate));
     }
 }
+
 
 
