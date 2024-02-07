@@ -79,7 +79,29 @@ public class HotelTest {
         assertEquals(220.0, ridgewood.getWeekdayRate(), 0.01);
         assertEquals(150.0, ridgewood.getWeekendRate(), 0.01);
     }
+
+    //UC 5
+    @Test
+    public void testSetRatings() {
+        // Arrange
+        HotelReservation reservationSystem = new HotelReservation();
+        reservationSystem.addHotel("Lakewood", 100.0, 110.0, 90.0);
+        reservationSystem.addHotel("Bridgewood", 150.0, 150.0, 50.0);
+        reservationSystem.addHotel("Ridgewood", 200.0, 220.0, 150.0);
+
+        // Act
+        ArrayList<Hotel> hotels = reservationSystem.getHotels();
+        hotels.get(0).setRating(3);
+        hotels.get(1).setRating(4);
+        hotels.get(2).setRating(5);
+
+        // Assert
+        assertEquals(3, hotels.get(0).getRating());
+        assertEquals(4, hotels.get(1).getRating());
+        assertEquals(5, hotels.get(2).getRating());
+    }
 }
+
 
 
 
