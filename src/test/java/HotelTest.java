@@ -118,10 +118,25 @@ public class HotelTest {
         // Assert
         assertEquals("Cheapest Best Rated Hotel: Bridgewood, Rating: 4 and Total Rates: $200", result);
     }
-}
 
+    // UC7: Test for finding the best-rated hotel for a given date range
+    @Test
+        public void testFindBestRatedHotel() {
+            // Arrange
+            HotelReservation reservationSystem = new HotelReservation();
+            reservationSystem.addHotel("Lakewood", 100.0, 110.0, 90.0);
+            reservationSystem.addHotel("Bridgewood", 150.0, 150.0, 50.0);
+            reservationSystem.addHotel("Ridgewood", 200.0, 220.0, 150.0);
 
+            LocalDate startDate = LocalDate.parse("2020-09-11", DateTimeFormatter.ISO_LOCAL_DATE);
+            LocalDate endDate = LocalDate.parse("2020-09-12", DateTimeFormatter.ISO_LOCAL_DATE);
 
+            // Act
+        String result;
+        result = reservationSystem.findBestRatedHotel(startDate, endDate);
 
+        // Assert
+            assertEquals("Best Rated Hotel: Ridgewood, Rating: 5", result);
+        }
 
-
+    }

@@ -4,7 +4,8 @@ import java.util.Comparator;
 
 public class HotelReservation {
 
-    public  ArrayList<Hotel> hotels; //Create ArrayList of Hotel class
+    public ArrayList<Hotel> hotels; //Create ArrayList of Hotel class
+
 
 
     public HotelReservation() {
@@ -40,7 +41,6 @@ public class HotelReservation {
         }*/
 
 
-
     private double calculateTotalRate(Hotel hotel, LocalDate startDate, LocalDate endDate) {
         // calculate rate :- +1 for including a last day.
         return hotel.getRegularCustomerRate() * (endDate.toEpochDay() - startDate.toEpochDay() + 1);
@@ -51,6 +51,7 @@ public class HotelReservation {
         Hotel cheapestBestRatedHotel = null;
         double minTotalRate = Double.MAX_VALUE;
         int maxRating = 0;
+
 
         for (Hotel hotel : hotels) {
             double totalRate = calculateTotalRate(hotel, startDate, endDate);
@@ -71,10 +72,32 @@ public class HotelReservation {
         } else {
             return "No hotels available";
         }
+
+        //UC : 7
+
+        // Updated method to find the best-rated hotel for a given date range
+        public String findBestRatedHotel(LocalDate startDate, LocalDate endDate)
+        {
+            Hotel bestRatedHotel = null;
+            int maxRatings= 0;
+
+
+            for (Hotel hotel : hotels) {
+                if (hotel.getRating() > maxRating) {
+                    maxRating = hotel.getRating();
+                    bestRatedHotel = hotel;
+                }
+            }
+
+            if (bestRatedHotel != null) {
+                return "Best Rated Hotel: " + bestRatedHotel.getName() + ", Rating: " + maxRating;
+            } else {
+                return "No hotels available";
+            }
+
+        }
     }
 
-
-}
 
 
 
