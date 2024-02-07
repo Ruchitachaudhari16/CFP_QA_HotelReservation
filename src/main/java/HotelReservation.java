@@ -20,7 +20,7 @@ public class HotelReservation {
         return hotels;
     }
     //Uc 2:-
-    public String findCheapestHotel(LocalDate startDate, LocalDate endDate) {
+  /*  public String findCheapestHotel(LocalDate startDate, LocalDate endDate) {
         Hotel cheapestHotel = null;
         double minTotalRate = Double.MAX_VALUE;
 
@@ -37,8 +37,8 @@ public class HotelReservation {
             return "Cheapest Hotel: " + cheapestHotel.getName() + ", Total Rates: $" + minTotalRate;
         } else {
             return "No hotels available";
-        }
-    }
+        }*/
+
 
 
     private double calculateTotalRate(Hotel hotel, LocalDate startDate, LocalDate endDate) {
@@ -46,7 +46,40 @@ public class HotelReservation {
         return hotel.getRegularCustomerRate() * (endDate.toEpochDay() - startDate.toEpochDay() + 1);
     }
 
+    //UC 6:-  method to find the cheapest best-rated hotel for a given date range
+    public String findCheapestBestRatedHotel(LocalDate startDate, LocalDate endDate) {
+        Hotel cheapestBestRatedHotel = null;
+        double minTotalRate = Double.MAX_VALUE;
+        int maxRating = 0;
+
+        for (Hotel hotel : hotels) {
+            double totalRate = calculateTotalRate(hotel, startDate, endDate);
+
+            if (totalRate < minTotalRate) {
+                minTotalRate = totalRate;
+                cheapestBestRatedHotel = hotel;
+                maxRating = hotel.getRating();
+            } else if (totalRate == minTotalRate && hotel.getRating() > maxRating) {
+                cheapestBestRatedHotel = hotel;
+                maxRating = hotel.getRating();
+            }
+        }
+
+        if (cheapestBestRatedHotel != null) {
+            return "Cheapest Best Rated Hotel: " + cheapestBestRatedHotel.getName() +
+                    ", Rating: " + maxRating + " and Total Rates: $" + minTotalRate;
+        } else {
+            return "No hotels available";
+        }
+    }
+
+
 }
+
+
+
+
+
 
 
 

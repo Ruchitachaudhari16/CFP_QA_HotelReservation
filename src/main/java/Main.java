@@ -43,7 +43,7 @@ rates for Regular Customer...*/
         LocalDate endDate = LocalDate.parse("2024-02-05", DateTimeFormatter.ISO_LOCAL_DATE);
 
         // Display Cheapest Hotel
-        System.out.println(reservationSystem.findCheapestHotel(startDate,endDate));
+      //  System.out.println(reservationSystem.findCheapestHotel(startDate,endDate));
     }
 }
 
